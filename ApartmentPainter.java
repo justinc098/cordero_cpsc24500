@@ -27,7 +27,7 @@ public class ApartmentPainter {
         double wallFour = (width*height) - doorSize;
         double ceilingArea = (length*width);
         double wallArea = wallOne + wallTwo + wallThree + wallFour;
-        double totalArea = 8*(wallArea + ceiling);
+        double totalArea = 8*(wallArea + ceilingArea);
 
         //Calculate the amount of gallons needed
         double paintGallons = Math.ceil(totalArea/paintCover);
