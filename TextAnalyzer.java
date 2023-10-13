@@ -10,8 +10,10 @@ import java.io.FileWriter;
 import java.util.Scanner;
 public class TextAnalyzer {
     public static void main(String[] args) {
+        //Intiate Scanner
         Scanner input = new Scanner(System.in);
 
+        //Welcome Message
         for (int x = 0; x <= 60; x++) {
             System.out.print("*");
         }
@@ -25,6 +27,7 @@ public class TextAnalyzer {
         }
         System.out.println();
 
+        //Collect File Info
         System.out.print("What text file would you like to analyze? ");
 
         String text = input.nextLine();
@@ -35,6 +38,7 @@ public class TextAnalyzer {
             return;
         }
 
+        //Read Text
         StringBuilder textContent = new StringBuilder();
         try (BufferedReader readText = new BufferedReader(new FileReader(textFile))) {
             String line;
@@ -45,6 +49,7 @@ public class TextAnalyzer {
             e.printStackTrace();
         }
 
+        //Ask what the user wants to do
         boolean running = true;
         while (running) {
             System.out.println("Here are your options:");
@@ -57,6 +62,7 @@ public class TextAnalyzer {
             System.out.print("Enter the number of your choice: ");
             String choice = input.nextLine();
 
+            //Do what the user wants
             switch (choice) {
                 case "1":
                     int vowelCount = countVowels(textContent.toString());
@@ -90,7 +96,7 @@ public class TextAnalyzer {
         }
     }
 
-
+    //Count Vowels
     private static int countVowels(String text) {
         String lowercaseText = text.toLowerCase();
         int vowelCount = 0;
@@ -105,6 +111,7 @@ public class TextAnalyzer {
         return vowelCount;
     }
 
+    //Count Consonants
     private static int countConsonants(String text) {
         String lowercaseText = text.toLowerCase();
         int consonantCount = 0;
@@ -119,11 +126,13 @@ public class TextAnalyzer {
         return consonantCount;
     }
 
+    //Word COunt
     private static int countWords(String text) {
         String[] words = text.split("\\s+");
         return words.length;
     }
 
+    //Summarize
     private static boolean writeSummaryToFile(String text, String textSumm) {
         try {
             FileWriter write = new FileWriter(textSumm);
