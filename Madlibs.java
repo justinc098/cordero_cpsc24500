@@ -38,7 +38,7 @@ public class Madlibs {
         System.out.println("This program generates random stories using wordlists you supply. \n");
         System.out.println("");
 
-        System.out.print("Enter the name of the folder where the stories and wordlists are.\n" +
+        System.out.print("Enter the name of the folder where the stories and wordlists are. \n" +
                 "Or just press Enter to accept the default location: ");
         String folderLoc = input.nextLine();
         System.out.println("");
@@ -66,7 +66,7 @@ public class Madlibs {
                 continue;
             }
 
-            String fileName = (folderLoc + "/story" + storyNumber + ".txt");
+            String fileName = (folderLoc + "\\story" + storyNumber + ".txt");
             try {
                 String madlib = generateMadlib(fileName, folderLoc);
                 System.out.println("Here is your Madlib: \n" + madlib);
@@ -104,7 +104,7 @@ public class Madlibs {
                     madlib.append(replace).append(".");
                 } else if (word.startsWith("<") && word.endsWith(",")) {
                     String placeHolder = word.substring(1, word.length() - 2);
-                    String wordList = folderLoc + "/" + placeHolder + ".txt";
+                    String wordList = folderLoc + "\\" + placeHolder + ".txt";
                     String replace = getRandomWord(wordList);
                     madlib.append(replace).append(",");
                 } else {
